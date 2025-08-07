@@ -1,0 +1,20 @@
+server {
+    listen 80;
+    server_name your_domain_or_ip;
+
+    access_log /var/log/nginx/zencrow_access.log;
+    error_log /var/log/nginx/zencrow_error.log;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:///home/ec2-user/zencrow-website/zencrow.sock;
+        uwsgi_param SCRIPT_NAME '';
+        uwsgi_modifier1 30;
+    }
+
+    location /static {
+        alias /home/ec2-user/zencrow-website/app/static;
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+    }
+}

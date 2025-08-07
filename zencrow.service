@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve Zencrow website
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/home/ec2-user/zencrow-website
+Environment="PATH=/home/ec2-user/zencrow-website/venv/bin"
+ExecStart=/home/ec2-user/zencrow-website/venv/bin/uwsgi --ini zencrow.ini
+
+[Install]
+WantedBy=multi-user.target

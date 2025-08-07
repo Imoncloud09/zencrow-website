@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 mb-4">Welcome to Zencrow Technologies</h1>
+    <p class="lead mb-4">Empowering businesses through technology and innovation</p>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <p class="mb-4">We provide comprehensive IT solutions, web development services, professional tech training, and language learning programs to help your business thrive in the digital age.</p>
+            <a href="{{ url_for('services.index') }}" class="btn btn-primary btn-lg">Explore Our Services</a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5 g-4">
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">IT Support</h5>
+                <p class="card-text">Expert technical support for your business needs</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Web Development</h5>
+                <p class="card-text">Custom web solutions for your digital presence</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Tech Training</h5>
+                <p class="card-text">Professional development for your team</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Language Learning</h5>
+                <p class="card-text">Expand your global communication skills</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

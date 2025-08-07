@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1 class="mb-4">About Zencrow Technologies</h1>
+        
+        <p class="lead mb-4">We are a forward-thinking tech company dedicated to empowering businesses through innovative solutions.</p>
+        
+        <div class="mb-4">
+            <h3>Our Mission</h3>
+            <p>To provide cutting-edge technology solutions and expert training that help businesses and individuals thrive in an increasingly digital world.</p>
+        </div>
+        
+        <div class="mb-4">
+            <h3>Why Choose Us?</h3>
+            <ul class="list-unstyled">
+                <li class="mb-3">✓ Expert team with years of industry experience</li>
+                <li class="mb-3">✓ Comprehensive solutions tailored to your needs</li>
+                <li class="mb-3">✓ Customer-focused approach</li>
+                <li class="mb-3">✓ Continuous support and maintenance</li>
+            </ul>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="{{ url_for('contact.index') }}" class="btn btn-primary btn-lg">Get in Touch</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
