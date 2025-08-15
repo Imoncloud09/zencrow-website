@@ -1,0 +1,105 @@
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, SubmitField, SelectField
+from wtforms.validators import DataRequired, Email
+
+class ContactForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    message = TextAreaField('Message', validators=[DataRequired()])
+    language = SelectField('Language of Interest', 
+                          choices=[
+                              ('', 'Select a language...'),
+                              ('english', 'English'),
+                              ('spanish', 'Spanish'),
+                              ('french', 'French'),
+                              ('german', 'German'),
+                              ('italian', 'Italian'),
+                              ('portuguese', 'Portuguese'),
+                              ('russian', 'Russian'),
+                              ('chinese', 'Chinese (Mandarin)'),
+                              ('japanese', 'Japanese'),
+                              ('korean', 'Korean'),
+                              ('arabic', 'Arabic'),
+                              ('hindi', 'Hindi'),
+                              ('tamil', 'Tamil'),
+                          ],
+                          validators=[])
+    proficiency_level = SelectField('Proficiency Level', 
+                                   choices=[
+                                       ('', 'Select your level...'),
+                                       ('beginner', 'Beginner'),
+                                       ('intermediate', 'Intermediate'),
+                                       ('advanced', 'Advanced'),
+                                   ],
+                                   validators=[])
+    it_services = SelectField('IT Services Needed', 
+                             choices=[
+                                 ('', 'Select IT services...'),
+                                 ('network-support', 'Network Support & Maintenance'),
+                                 ('hardware-support', 'Hardware Support & Repair'),
+                                 ('software-support', 'Software Installation & Support'),
+                                 ('cybersecurity', 'Cybersecurity & Data Protection'),
+                                 ('cloud-services', 'Cloud Services & Migration'),
+                                 ('backup-recovery', 'Backup & Disaster Recovery'),
+                                 ('helpdesk', '24/7 Help Desk Support'),
+                                 ('consulting', 'IT Consulting & Strategy'),
+                                 ('managed-services', 'Managed IT Services'),
+                                 ('voip-phone', 'VoIP Phone Systems'),
+                                 ('server-management', 'Server Management'),
+                                 ('workstation-setup', 'Workstation Setup & Configuration'),
+                                 ('remote-support', 'Remote Technical Support'),
+                                 ('on-site-support', 'On-Site Technical Support'),
+                             ],
+                             validators=[])
+    web_development_services = SelectField('Web Development Services', 
+                                         choices=[
+                                             ('', 'Select web development services...'),
+                                             ('frontend-development', 'Frontend Development'),
+                                             ('backend-development', 'Backend Development'),
+                                             ('full-stack-development', 'Full-Stack Development'),
+                                             ('ecommerce-website', 'E-commerce Website'),
+                                             ('corporate-website', 'Corporate Website'),
+                                             ('portfolio-website', 'Portfolio Website'),
+                                             ('blog-website', 'Blog Website'),
+                                             ('web-application', 'Web Application'),
+                                             ('api-development', 'API Development'),
+                                             ('database-design', 'Database Design'),
+                                             ('responsive-design', 'Responsive Design'),
+                                             ('ui-ux-design', 'UI/UX Design'),
+                                             ('website-maintenance', 'Website Maintenance'),
+                                             ('seo-optimization', 'SEO Optimization'),
+                                             ('performance-optimization', 'Performance Optimization'),
+                                             ('security-implementation', 'Security Implementation'),
+                                             ('cms-development', 'CMS Development'),
+                                             ('mobile-responsive', 'Mobile-Responsive Design'),
+                                             ('progressive-web-app', 'Progressive Web App (PWA)'),
+                                         ],
+                                         validators=[])
+    tech_training_services = SelectField('Tech Training Programs', 
+                                       choices=[
+                                           ('', 'Select tech training programs...'),
+                                           ('python-programming', 'Python Programming'),
+                                           ('java-development', 'Java Development'),
+                                           ('web-development-bootcamp', 'Web Development Bootcamp'),
+                                           ('data-science', 'Data Science & Analytics'),
+                                           ('machine-learning', 'Machine Learning & AI'),
+                                           ('cybersecurity-training', 'Cybersecurity Training'),
+                                           ('cloud-computing', 'Cloud Computing (AWS/Azure/GCP)'),
+                                           ('devops-training', 'DevOps & CI/CD'),
+                                           ('mobile-app-development', 'Mobile App Development'),
+                                           ('database-management', 'Database Management'),
+                                           ('ui-ux-design-training', 'UI/UX Design Training'),
+                                           ('agile-methodology', 'Agile & Scrum Methodology'),
+                                           ('project-management', 'IT Project Management'),
+                                           ('network-administration', 'Network Administration'),
+                                           ('system-administration', 'System Administration'),
+                                           ('software-testing', 'Software Testing & QA'),
+                                           ('blockchain-development', 'Blockchain Development'),
+                                           ('iot-development', 'IoT Development'),
+                                           ('digital-marketing', 'Digital Marketing & SEO'),
+                                           ('business-analytics', 'Business Analytics'),
+                                           ('enterprise-software', 'Enterprise Software Training'),
+                                       ],
+                                       validators=[])
+    submit = SubmitField('Send Message')

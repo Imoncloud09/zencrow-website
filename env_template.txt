@@ -1,0 +1,32 @@
+# Zencrow Website Environment Variables
+# Development Configuration
+
+# Flask Configuration
+FLASK_ENV=development
+SECRET_KEY=dev-secret-key-change-in-production
+
+# Database Configuration
+DATABASE_URL=sqlite:///zencrow.db
+
+# Mail Configuration - Choose one option below:
+
+# Option 1: Gmail (requires App Password)
+MAIL_SERVER=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USE_TLS=True
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
+
+# Option 2: Disable email functionality (comment out the above lines)
+# MAIL_SERVER=
+# MAIL_PORT=
+# MAIL_USE_TLS=
+# MAIL_USERNAME=
+# MAIL_PASSWORD=
+
+# Option 3: Use Mailtrap for testing (free service)
+# MAIL_SERVER=sandbox.smtp.mailtrap.io
+# MAIL_PORT=2525
+# MAIL_USE_TLS=True
+# MAIL_USERNAME=your-mailtrap-username
+# MAIL_PASSWORD=your-mailtrap-password

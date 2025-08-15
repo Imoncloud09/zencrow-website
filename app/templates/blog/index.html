@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4 text-center">Blog & News</h1>
+            <p class="lead text-center mb-5">Stay updated with the latest insights on technology trends and innovations</p>
+            
+            <!-- Search Bar -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-6">
+                    <form method="GET" action="{{ url_for('blog.index') }}" class="search-form">
+                        <div class="input-group">
+                            <input type="text" 
+                                   class="form-control form-control-lg" 
+                                   name="search" 
+                                   placeholder="Search articles..." 
+                                   value="{{ search_query or '' }}">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Search Results Info -->
+            {% if search_query %}
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8">
+                    <div class="alert alert-info text-center">
+                        <i class="bi bi-search me-2"></i>
+                        Search results for: <strong>"{{ search_query }}"</strong>
+                        <a href="{{ url_for('blog.index') }}" class="btn btn-sm btn-outline-primary ms-3">
+                            <i class="bi bi-x-circle me-1"></i>Clear Search
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if posts %}
+        <div class="row g-4">
+            {% for post in posts %}
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-primary mb-3">{{ post.title }}</h2>
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-secondary me-2">By {{ post.author }}</span>
+                            <small class="text-muted">{{ post.date_posted.strftime('%B %d, %Y') }}</small>
+                        </div>
+                        
+                        <div class="blog-content">
+                            {% set content_lines = post.content.split('\n') %}
+                            {% for line in content_lines %}
+                                {% if line.startswith('# ') %}
+                                    <h1 class="mt-4 mb-3">{{ line[2:] }}</h1>
+                                {% elif line.startswith('## ') %}
+                                    <h2 class="mt-4 mb-3 text-primary">{{ line[3:] }}</h2>
+                                {% elif line.startswith('### ') %}
+                                    <h3 class="mt-3 mb-2 text-secondary">{{ line[4:] }}</h3>
+                                {% elif line.startswith('- **') and line.endswith('**') %}
+                                    <li class="mb-2"><strong>{{ line[4:-2] }}</strong></li>
+                                {% elif line.startswith('- ') %}
+                                    <li class="mb-2">{{ line[2:] }}</li>
+                                {% elif line.startswith('1. **') and line.endswith('**') %}
+                                    <li class="mb-2"><strong>{{ line[3:-2] }}</strong></li>
+                                {% elif line.startswith('1. ') %}
+                                    <li class="mb-2">{{ line[3:] }}</li>
+                                {% elif line.startswith('---') %}
+                                    <hr class="my-4">
+                                {% elif line.strip() == '' %}
+                                    <br>
+                                {% elif line.startswith('*') and line.endswith('*') %}
+                                    <p class="text-muted fst-italic">{{ line[1:-1] }}</p>
+                                {% else %}
+                                    <p class="mb-3">{{ line }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-info me-2">Technology</span>
+                                    <span class="badge bg-success">Future Trends</span>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="window.scrollTo(0, 0)">
+                                    <i class="bi bi-arrow-up"></i> Back to Top
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    {% if search_query %}
+                        <h4>No articles found</h4>
+                        <p>No articles match your search for "{{ search_query }}". Try different keywords or <a href="{{ url_for('blog.index') }}">browse all articles</a>.</p>
+                    {% else %}
+                        <h4>No blog posts available yet</h4>
+                        <p>Check back soon for the latest insights and updates!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<style>
+.search-form .input-group {
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.search-form .form-control {
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+.search-form .form-control:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.search-form .btn {
+    padding: 1rem 1.5rem;
+    border: none;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.search-form .btn:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+}
+
+.blog-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.blog-content h1, .blog-content h2, .blog-content h3 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.blog-content ul {
+    padding-left: 1.5rem;
+}
+
+.blog-content li {
+    margin-bottom: 0.5rem;
+}
+
+.blog-content strong {
+    color: #34495e;
+}
+
+.card {
+    border: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.badge {
+    font-size: 0.8rem;
+}
+
+/* Highlight search terms */
+{% if search_query %}
+.blog-content h1, .blog-content h2, .blog-content h3, .blog-content p, .blog-content li {
+    position: relative;
+}
+
+.blog-content h1::marker,
+.blog-content h2::marker,
+.blog-content h3::marker,
+.blog-content p::marker,
+.blog-content li::marker {
+    background-color: #fef3c7;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.25rem;
+}
+{% endif %}
+</style>
+
+<script>
+// Auto-focus search input when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('input[name="search"]');
+    if (searchInput && !searchInput.value) {
+        searchInput.focus();
+    }
+});
+
+// Highlight search terms in content
+{% if search_query %}
+document.addEventListener('DOMContentLoaded', function() {
+    const searchTerm = '{{ search_query }}';
+    const contentElements = document.querySelectorAll('.blog-content h1, .blog-content h2, .blog-content h3, .blog-content p, .blog-content li');
+    
+    contentElements.forEach(element => {
+        const text = element.innerHTML;
+        const highlightedText = text.replace(
+            new RegExp(searchTerm, 'gi'),
+            function(match) { return '<mark class="bg-warning">' + match + '</mark>'; }
+        );
+        element.innerHTML = highlightedText;
+    });
+});
+{% endif %}
+</script>
+{% endblock %}

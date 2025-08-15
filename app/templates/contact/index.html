@@ -1,0 +1,1056 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<!-- Contact Hero -->
+<section class="contact-hero py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-4">Get in Touch</h1>
+                <p class="lead text-muted mb-5">
+                    Ready to transform your business? Let's discuss your project requirements 
+                    and find the perfect solution for your needs.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-card">
+                    <div class="row">
+                        <!-- Contact Form -->
+                        <div class="col-lg-8">
+                            <div class="form-section">
+                                <h3 class="mb-4">Send us a Message</h3>
+                                <form method="POST" class="contact-form">
+                                    {{ form.hidden_tag() }}
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label fw-semibold">
+                                                <i class="bi bi-person me-2"></i>{{ form.name.label }}
+                                            </label>
+                                            {{ form.name(class="form-control form-control-lg" + (" is-invalid" if form.name.errors else ""), placeholder="Your full name") }}
+                                            {% for error in form.name.errors %}
+                                                <div class="invalid-feedback">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                        
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label fw-semibold">
+                                                <i class="bi bi-envelope me-2"></i>{{ form.email.label }}
+                                            </label>
+                                            {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else ""), placeholder="your.email@example.com") }}
+                                            {% for error in form.email.errors %}
+                                                <div class="invalid-feedback">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold">
+                                            <i class="bi bi-chat-dots me-2"></i>{{ form.subject.label }}
+                                        </label>
+                                        {{ form.subject(class="form-control form-control-lg" + (" is-invalid" if form.subject.errors else ""), placeholder="What can we help you with?") }}
+                                        {% for error in form.subject.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- Language Selection (shown only for language learning) -->
+                                    <div class="mb-3 language-selection" style="display: none;">
+                                        <label class="form-label fw-semibold">
+                                            <i class="bi bi-translate me-2"></i>{{ form.language.label }}
+                                        </label>
+                                        {{ form.language(class="form-control form-control-lg" + (" is-invalid" if form.language.errors else "")) }}
+                                        {% for error in form.language.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                        <div class="form-text">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Select the language you're interested in learning. We offer personalized programs for all skill levels.
+                                        </div>
+                                    </div>
+
+                                    <!-- Proficiency Level Selection (shown only for language learning) -->
+                                    <div class="mb-3 proficiency-level-selection" style="display: none;">
+                                        <label class="form-label fw-semibold">
+                                            <i class="bi bi-graph-up me-2"></i>{{ form.proficiency_level.label }}
+                                        </label>
+                                        {{ form.proficiency_level(class="form-control form-control-lg" + (" is-invalid" if form.proficiency_level.errors else "")) }}
+                                        {% for error in form.proficiency_level.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                        <div class="form-text">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Choose your current proficiency level to help us tailor the learning program to your needs.
+                                        </div>
+                                    </div>
+
+                                    <!-- IT Services Selection (shown only for IT support) -->
+                                    <div class="mb-3 it-services-selection" style="display: none;">
+                                        <label class="form-label fw-semibold">
+                                            <i class="bi bi-gear-fill me-2"></i>{{ form.it_services.label }}
+                                        </label>
+                                        {{ form.it_services(class="form-control form-control-lg" + (" is-invalid" if form.it_services.errors else "")) }}
+                                        {% for error in form.it_services.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                        <div class="form-text">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Select the specific IT services you need. We offer comprehensive solutions to keep your business running smoothly.
+                                        </div>
+                                    </div>
+
+                                    <!-- Web Development Services Selection (shown only for web development) -->
+                                    <div class="mb-3 web-development-services-selection" style="display: none;">
+                                        <label class="form-label fw-semibold">
+                                            <i class="bi bi-code-slash me-2"></i>{{ form.web_development_services.label }}
+                                        </label>
+                                        {{ form.web_development_services(class="form-control form-control-lg" + (" is-invalid" if form.web_development_services.errors else "")) }}
+                                        {% for error in form.web_development_services.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                        <div class="form-text">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Select the specific web development services you need. We create modern, scalable, and user-friendly web solutions.
+                                        </div>
+                                    </div>
+
+                                    <!-- Tech Training Services Selection (shown only for tech training) -->
+                                    <div class="mb-3 tech-training-services-selection" style="display: none;">
+                                        <label class="form-label fw-semibold">
+                                            <i class="bi bi-laptop me-2"></i>{{ form.tech_training_services.label }}
+                                        </label>
+                                        {{ form.tech_training_services(class="form-control form-control-lg" + (" is-invalid" if form.tech_training_services.errors else "")) }}
+                                        {% for error in form.tech_training_services.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                        <div class="form-text">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Select the specific tech training program you're interested in. We offer comprehensive training to enhance your technical skills.
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold">
+                                            <i class="bi bi-pencil me-2"></i>{{ form.message.label }}
+                                        </label>
+                                        {{ form.message(class="form-control" + (" is-invalid" if form.message.errors else ""), rows=6, placeholder="Tell us about your project requirements, timeline, and any specific needs...") }}
+                                        {% for error in form.message.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="d-grid">
+                                        {{ form.submit(class="btn btn-primary btn-lg") }}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Information -->
+                        <div class="col-lg-4">
+                            <div class="contact-info">
+                                <div class="contact-header">
+                                    <h3 class="mb-4 text-white">Contact Information</h3>
+                                    <p class="text-white-50 mb-4">Get in touch with us for any inquiries or support</p>
+                                </div>
+                                
+                                <div class="info-item mb-4">
+                                    <div class="info-icon mb-3">
+                                        <i class="bi bi-geo-alt-fill text-white fs-4"></i>
+                                    </div>
+                                    <h6 class="fw-semibold text-white mb-2">Our Location</h6>
+                                    <p class="text-white-50 mb-0">
+                                        Zencrow Technologies<br>
+                                        Nagpur 440035<br>
+                                        India
+                                    </p>
+                                    <button class="btn btn-sm btn-outline-light mt-2" onclick="openMap()">
+                                        <i class="bi bi-map me-1"></i>View on Map
+                                    </button>
+                                </div>
+                                
+                                <div class="info-item mb-4">
+                                    <div class="info-icon mb-3">
+                                        <i class="bi bi-telephone-fill text-white fs-4"></i>
+                                    </div>
+                                    <h6 class="fw-semibold text-white mb-2">Call Us</h6>
+                                    <p class="text-white-50 mb-0">
+                                        <a href="tel:+1-555-123-4567" class="text-decoration-none text-white-50">+91 7264915082</a>
+                                    </p>
+                                    <button class="btn btn-sm btn-outline-light mt-2" onclick="copyPhone()">
+                                        <i class="bi bi-clipboard me-1"></i>Copy Number
+                                    </button>
+                                </div>
+                                
+                                <div class="info-item mb-4">
+                                    <div class="info-icon mb-3">
+                                        <i class="bi bi-envelope-fill text-white fs-4"></i>
+                                    </div>
+                                    <h6 class="fw-semibold text-white mb-2">Email Us</h6>
+                                    <p class="text-white-50 mb-0">
+                                        <a href="mailto:hr@zencrowtechnologies.com" class="text-decoration-none text-white-50">hr@zencrowtechnologies.com</a>
+                                    </p>
+                                    <button class="btn btn-sm btn-outline-light mt-2" onclick="copyEmail()">
+                                        <i class="bi bi-clipboard me-1"></i>Copy Email
+                                    </button>
+                                </div>
+                                
+                                <div class="info-item mb-4">
+                                    <div class="info-icon mb-3">
+                                        <i class="bi bi-clock-fill text-white fs-4"></i>
+                                    </div>
+                                    <h6 class="fw-semibold text-white mb-2">Business Hours</h6>
+                                    <div class="hours-info">
+                                        <div class="hour-item">
+                                            <span class="day">Mon - Fri</span>
+                                            <span class="time">9:00 AM - 6:00 PM</span>
+                                        </div>
+                                        <div class="hour-item">
+                                            <span class="day">Saturday</span>
+                                            <span class="time">10:00 AM - 4:00 PM</span>
+                                        </div>
+                                        <div class="hour-item closed">
+                                            <span class="day">Sunday</span>
+                                            <span class="time">Closed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="social-links">
+                                    <h6 class="fw-semibold text-white mb-3">Connect With Us</h6>
+                                    <div class="d-flex gap-2">
+                                        <a href="#" class="social-link" data-tooltip="LinkedIn">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a>
+                                        <a href="#" class="social-link" data-tooltip="Twitter">
+                                            <i class="bi bi-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-link" data-tooltip="Facebook">
+                                            <i class="bi bi-facebook"></i>
+                                        </a>
+                                        <a href="#" class="social-link" data-tooltip="Instagram">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-status mt-4">
+                                    <div class="status-indicator">
+                                        <div class="status-dot online"></div>
+                                        <span class="status-text">Online Now</span>
+                                    </div>
+                                    <p class="text-white-50 small mt-2">We typically respond within 2 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Frequently Asked Questions</h2>
+                <p class="lead text-muted">Quick answers to common questions</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                What services do you offer?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We offer comprehensive IT support, custom web development, professional tech training, and language learning programs. Each service is tailored to meet your specific business needs.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                How quickly can you start a project?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Project start times vary depending on complexity and current workload. Simple projects can begin within 1-2 weeks, while complex solutions may require 2-4 weeks for planning and setup.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Do you provide ongoing support?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we offer various support packages including 24/7 technical support, regular maintenance, and ongoing consultation to ensure your solutions continue to meet your evolving needs.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                What is your pricing structure?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our pricing is transparent and based on project scope and requirements. We offer flexible payment plans and can provide detailed quotes after understanding your specific needs.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Contact Card */
+.contact-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+    overflow: hidden;
+}
+
+.form-section {
+    padding: 2rem;
+}
+
+.contact-info {
+    padding: 2rem;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1d4ed8 100%);
+    color: white;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    pointer-events: none;
+}
+
+.contact-header {
+    position: relative;
+    z-index: 1;
+}
+
+/* Form Styling */
+.form-control {
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 0.2rem rgba(37,99,235,.15);
+}
+
+.form-control-lg {
+    padding: 0.75rem 1rem;
+}
+
+/* Language Selection Styling */
+.language-selection {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.language-selection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.language-selection .form-text {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.language-selection select {
+    background-color: white;
+    border: 2px solid #e2e8f0;
+}
+
+.language-selection select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.15);
+}
+
+/* Proficiency Level Selection Styling */
+.proficiency-level-selection {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.proficiency-level-selection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #06b6d4 0%, #0891b2 100%);
+}
+
+.proficiency-level-selection .form-text {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.proficiency-level-selection select {
+    background-color: white;
+    border: 2px solid #bae6fd;
+}
+
+.proficiency-level-selection select:focus {
+    border-color: #06b6d4;
+    box-shadow: 0 0 0 0.2rem rgba(6, 182, 212, 0.15);
+}
+
+/* IT Services Selection Styling */
+.it-services-selection {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.it-services-selection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+}
+
+.it-services-selection .form-text {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.it-services-selection select {
+    background-color: white;
+    border: 2px solid #fde68a;
+}
+
+.it-services-selection select:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.15);
+}
+
+/* Web Development Services Selection Styling */
+.web-development-services-selection {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #10b981;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.web-development-services-selection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+}
+
+.web-development-services-selection .form-text {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.web-development-services-selection select {
+    background-color: white;
+    border: 2px solid #d1fae5;
+}
+
+.web-development-services-selection select:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.15);
+}
+
+/* Tech Training Services Selection Styling */
+.tech-training-services-selection {
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+    border: 1px solid #ec4899;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-training-services-selection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ec4899 0%, #be185d 100%);
+}
+
+.tech-training-services-selection .form-text {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.tech-training-services-selection select {
+    background-color: white;
+    border: 2px solid #fce7f3;
+}
+
+.tech-training-services-selection select:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 0 0.2rem rgba(236, 72, 153, 0.15);
+}
+
+/* Info Items */
+.info-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateX(5px);
+    background: rgba(255,255,255,.05);
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    margin-left: -1rem;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(255,255,255,.2) 0%, rgba(255,255,255,.1) 100%);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.2);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,.2) 100%);
+    box-shadow: 0 4px 15px rgba(255,255,255,.2);
+}
+
+/* Business Hours */
+.hours-info {
+    margin-top: 0.5rem;
+}
+
+.hour-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    transition: all 0.3s ease;
+}
+
+.hour-item:hover {
+    background: rgba(255,255,255,.05);
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.hour-item:last-child {
+    border-bottom: none;
+}
+
+.hour-item .day {
+    font-weight: 600;
+    color: white;
+    min-width: 80px;
+    text-align: left;
+}
+
+.hour-item .time {
+    color: rgba(255,255,255,.8);
+    text-align: right;
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.hour-item.closed .time {
+    color: rgba(255,255,255,.5);
+    font-style: italic;
+}
+
+.hour-item.closed {
+    opacity: 0.7;
+}
+
+/* Contact Status */
+.contact-status {
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+    background: rgba(255,255,255,.1);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255,255,255,.2);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.status-dot.online {
+    background: #10b981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,.15);
+    position: relative;
+    z-index: 1;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, rgba(255,255,255,.15) 0%, rgba(255,255,255,.1) 100%);
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.2);
+    margin: 0 0.25rem;
+    position: relative;
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, rgba(255,255,255,.25) 0%, rgba(255,255,255,.2) 100%);
+    color: white;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(255,255,255,.3);
+}
+
+.social-link:nth-child(1):hover { background: linear-gradient(135deg, #0077b5 0%, #005885 100%); }
+.social-link:nth-child(2):hover { background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%); }
+.social-link:nth-child(3):hover { background: linear-gradient(135deg, #4267b2 0%, #365899 100%); }
+.social-link:nth-child(4):hover { background: linear-gradient(135deg, #e4405f 0%, #d63384 100%); }
+
+/* Tooltips */
+.social-link::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.social-link:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* FAQ Styling */
+.accordion-item {
+    border: none;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+
+.accordion-button {
+    background: white;
+    border: none;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #2563eb;
+    color: white;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-section,
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .contact-info {
+        margin-top: 1rem;
+    }
+}
+
+/* Animation */
+.contact-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<script>
+// Auto-fill subject based on service selection and show/hide language selection
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const service = urlParams.get('service');
+    
+    if (service) {
+        const subjectField = document.querySelector('input[name="subject"]');
+        const languageSelection = document.querySelector('.language-selection');
+        const proficiencyLevelSelection = document.querySelector('.proficiency-level-selection');
+        const itServicesSelection = document.querySelector('.it-services-selection');
+        const webDevelopmentServicesSelection = document.querySelector('.web-development-services-selection');
+        const techTrainingServicesSelection = document.querySelector('.tech-training-services-selection');
+        const messageField = document.querySelector('textarea[name="message"]');
+        
+        if (subjectField) {
+            const serviceNames = {
+                'it-support': 'IT Support & Solutions Inquiry',
+                'web-development': 'Web Development Project Inquiry',
+                'tech-training': 'Tech Training Program Inquiry',
+                'language-learning': 'Language Learning Program Inquiry'
+            };
+            
+            if (serviceNames[service]) {
+                subjectField.value = serviceNames[service];
+            }
+        }
+        
+        // Show language and proficiency level selection for language learning service
+        if (service === 'language-learning') {
+            if (languageSelection) {
+                languageSelection.style.display = 'block';
+                
+                // Add smooth animation for language selection
+                languageSelection.style.opacity = '0';
+                languageSelection.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    languageSelection.style.transition = 'all 0.3s ease';
+                    languageSelection.style.opacity = '1';
+                    languageSelection.style.transform = 'translateY(0)';
+                }, 100);
+            }
+            
+            if (proficiencyLevelSelection) {
+                proficiencyLevelSelection.style.display = 'block';
+                
+                // Add smooth animation for proficiency level selection
+                proficiencyLevelSelection.style.opacity = '0';
+                proficiencyLevelSelection.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    proficiencyLevelSelection.style.transition = 'all 0.3s ease';
+                    proficiencyLevelSelection.style.opacity = '1';
+                    proficiencyLevelSelection.style.transform = 'translateY(0)';
+                }, 200); // Slightly delayed for staggered effect
+            }
+            
+            // Update message placeholder for language learning
+            if (messageField) {
+                messageField.placeholder = "Tell us about your language learning goals, preferred learning style, and any specific requirements...";
+            }
+        }
+        
+        // Show IT services selection for IT support service
+        if (service === 'it-support') {
+            if (itServicesSelection) {
+                itServicesSelection.style.display = 'block';
+                
+                // Add smooth animation for IT services selection
+                itServicesSelection.style.opacity = '0';
+                itServicesSelection.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    itServicesSelection.style.transition = 'all 0.3s ease';
+                    itServicesSelection.style.opacity = '1';
+                    itServicesSelection.style.transform = 'translateY(0)';
+                }, 100);
+            }
+            
+            // Update message placeholder for IT support
+            if (messageField) {
+                messageField.placeholder = "Tell us about your IT infrastructure, current issues, number of users, and any specific requirements...";
+            }
+        }
+        
+        // Show web development services selection for web development service
+        if (service === 'web-development') {
+            if (webDevelopmentServicesSelection) {
+                webDevelopmentServicesSelection.style.display = 'block';
+                
+                // Add smooth animation for web development services selection
+                webDevelopmentServicesSelection.style.opacity = '0';
+                webDevelopmentServicesSelection.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    webDevelopmentServicesSelection.style.transition = 'all 0.3s ease';
+                    webDevelopmentServicesSelection.style.opacity = '1';
+                    webDevelopmentServicesSelection.style.transform = 'translateY(0)';
+                }, 100);
+            }
+            
+            // Update message placeholder for web development
+            if (messageField) {
+                messageField.placeholder = "Tell us about your project requirements, target audience, features needed, timeline, and any specific design preferences...";
+            }
+        }
+        
+        // Show tech training services selection for tech training service
+        if (service === 'tech-training') {
+            if (techTrainingServicesSelection) {
+                techTrainingServicesSelection.style.display = 'block';
+                
+                // Add smooth animation for tech training services selection
+                techTrainingServicesSelection.style.opacity = '0';
+                techTrainingServicesSelection.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    techTrainingServicesSelection.style.transition = 'all 0.3s ease';
+                    techTrainingServicesSelection.style.opacity = '1';
+                    techTrainingServicesSelection.style.transform = 'translateY(0)';
+                }, 100);
+            }
+            
+            // Update message placeholder for tech training
+            if (messageField) {
+                messageField.placeholder = "Tell us about your learning goals, current skill level, preferred learning format (online/in-person), group size, and any specific topics you want to focus on...";
+            }
+        }
+    }
+});
+
+// Form validation enhancement
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    const requiredFields = this.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            field.classList.remove('is-invalid');
+        }
+    });
+    
+    if (!isValid) {
+        e.preventDefault();
+        showNotification('Please fill in all required fields.', 'error');
+    }
+});
+
+// Quick action functions
+function copyEmail() {
+    navigator.clipboard.writeText('hr@zencrowtechnologies.com').then(() => {
+        showNotification('Email copied to clipboard!', 'success');
+    });
+}
+
+function copyPhone() {
+    navigator.clipboard.writeText('+91 7264915082').then(() => {
+        showNotification('Phone number copied to clipboard!', 'success');
+    });
+}
+
+function openMap() {
+    const address = 'Nagpur 440035, India';
+    const encodedAddress = encodeURIComponent(address);
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="bi bi-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => notification.classList.add('show'), 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Add notification styles
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        padding: 1rem 1.5rem;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        z-index: 10000;
+        border-left: 4px solid #2563eb;
+    }
+    
+    .notification.show {
+        transform: translateX(0);
+    }
+    
+    .notification-success {
+        border-left-color: #10b981;
+    }
+    
+    .notification-error {
+        border-left-color: #ef4444;
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .notification-content i {
+        font-size: 1.2rem;
+    }
+    
+    .notification-success .notification-content i {
+        color: #10b981;
+    }
+    
+    .notification-error .notification-content i {
+        color: #ef4444;
+    }
+`;
+document.head.appendChild(notificationStyles);
+</script>
+{% endblock %}

@@ -1,0 +1,328 @@
+{% extends "base.html" %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="services-hero py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-4">Our Services</h1>
+                <p class="lead text-muted mb-5">
+                    Comprehensive technology solutions designed to drive your business forward. 
+                    From IT support to custom development, we've got you covered.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="services-overview py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-lg-6 mb-5">
+                <div class="service-card h-100" id="{{ service.id }}">
+                    <div class="service-header d-flex align-items-center mb-4">
+                        <div class="service-icon me-3">
+                            <i class="bi {{ service.icon }} display-4 text-{{ service.color }}"></i>
+                        </div>
+                        <div>
+                            <h3 class="service-title mb-2">{{ service.title }}</h3>
+                            <p class="service-description text-muted mb-0">{{ service.description }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features mb-4">
+                        <h5 class="mb-3">Key Features:</h5>
+                        <div class="row">
+                            {% for feature in service.features %}
+                            <div class="col-md-6 mb-2">
+                                <div class="feature-item d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>{{ feature }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!--
+                    <div class="service-pricing">
+                        <h5 class="mb-3">Pricing Plans:</h5>
+                        <div class="row g-3">
+                            {% for plan_name, plan_data in service.pricing.items() %}
+                            <div class="col-md-4">
+                                <div class="pricing-card text-center p-3 border rounded">
+                                    <h6 class="text-capitalize mb-2">{{ plan_name }}</h6>
+                                    <div class="price mb-2">
+                                        <span class="h5 fw-bold">{{ plan_data.price }}</span>
+                                        {% if plan_data.period %}
+                                        <small class="text-muted">/{{ plan_data.period }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <ul class="list-unstyled small">
+                                        {% for feature in plan_data.features %}
+                                        <li class="mb-1">{{ feature }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    -->
+                    <div class="service-cta mt-4">
+                        <a href="{{ url_for('contact.index') }}?service={{ service.id }}" 
+                           class="btn btn-{{ service.color }} btn-lg w-100">
+                            <i class="bi bi-chat-dots me-2"></i>Get Quote for {{ service.title }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Our Services -->
+<section class="why-choose-services py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Why Choose Our Services?</h2>
+                <p class="lead text-muted">We deliver exceptional value through expertise, innovation, and dedication</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="benefit-card text-center">
+                    <div class="benefit-icon mb-3">
+                        <i class="bi bi-award display-4 text-primary"></i>
+                    </div>
+                    <h4>Expert Team</h4>
+                    <p class="text-muted">Certified professionals with years of industry experience and continuous training.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card text-center">
+                    <div class="benefit-icon mb-3">
+                        <i class="bi bi-clock display-4 text-success"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p class="text-muted">Round-the-clock technical support to ensure your business never stops running.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card text-center">
+                    <div class="benefit-icon mb-3">
+                        <i class="bi bi-shield-check display-4 text-warning"></i>
+                    </div>
+                    <h4>Quality Guarantee</h4>
+                    <p class="text-muted">We stand behind our work with comprehensive warranties and satisfaction guarantees.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Our Process</h2>
+                <p class="lead text-muted">A proven methodology that ensures successful project delivery</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="process-step text-center">
+                    <div class="process-number mb-3">1</div>
+                    <h5>Discovery</h5>
+                    <p class="text-muted">We analyze your requirements and understand your business goals.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="process-step text-center">
+                    <div class="process-number mb-3">2</div>
+                    <h5>Planning</h5>
+                    <p class="text-muted">We create a detailed roadmap and timeline for your project.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="process-step text-center">
+                    <div class="process-number mb-3">3</div>
+                    <h5>Execution</h5>
+                    <p class="text-muted">Our team implements the solution with regular progress updates.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="process-step text-center">
+                    <div class="process-number mb-3">4</div>
+                    <h5>Support</h5>
+                    <p class="text-muted">Ongoing maintenance and support to ensure optimal performance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Get Started?</h2>
+        <p class="lead mb-4 text-white">Let's discuss your project requirements and find the perfect solution for your business</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('contact.index') }}" class="btn btn-light btn-lg">
+                <i class="bi bi-envelope me-2"></i>Contact Us
+            </a>
+            <a href="{{ url_for('about.index') }}" class="btn btn-light btn-lg">
+                <i class="bi bi-info-circle me-2"></i>Learn More
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Service Cards */
+.service-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,.05);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px rgba(0,0,0,.1);
+}
+
+.service-title {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.service-description {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Feature Items */
+.feature-item {
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+/* Pricing Cards */
+.pricing-card {
+    background: #f9fafb;
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
+
+.price {
+    color: #2563eb;
+}
+
+/* Benefit Cards */
+.benefit-card {
+    padding: 2rem 1rem;
+}
+
+.benefit-icon {
+    color: #2563eb;
+}
+
+/* Process Steps */
+.process-step {
+    padding: 1.5rem;
+}
+
+.process-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .process-step {
+        padding: 1rem;
+    }
+    
+    .process-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation for service cards */
+.service-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for multiple cards */
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+</style>
+
+<script>
+// Smooth scroll to service when clicking on navigation links
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceId = urlParams.get('service');
+    
+    if (serviceId) {
+        const serviceElement = document.getElementById(serviceId);
+        if (serviceElement) {
+            serviceElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+});
+
+// Add hover effects to pricing cards
+document.querySelectorAll('.pricing-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+});
+</script>
+{% endblock %}

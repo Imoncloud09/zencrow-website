@@ -1,0 +1,464 @@
+{# Inherit the base layout which includes shared HTML structure like navbar, footer, etc. #}
+{% extends "base.html" %}
+
+{# Set the title of the page that appears in the browser tab #}
+{% block title %}About Us{% endblock %}
+
+{# Begin the main content block of the page #}
+{% block content %}
+<!-- Hero Section -->
+<section class="about-hero py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">About Zencrow Technologies</h1>
+                <p class="lead mb-4">
+                    We are a forward-thinking technology company dedicated to empowering businesses 
+                    through innovative solutions and expert guidance.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ url_for('contact.index') }}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-chat-dots me-2"></i>Get in Touch
+                    </a>
+                    <a href="{{ url_for('services.index') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-list-check me-2"></i>Our Services
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="about-image">
+                    <i class="bi bi-building display-1 text-primary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="mission-vision py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="mission-card h-100">
+                    <div class="card-icon mb-4">
+                        <i class="bi bi-bullseye display-4 text-primary"></i>
+                    </div>
+                    <h3 class="mb-3">Our Mission</h3>
+                    <p class="lead mb-4">
+                        To provide cutting-edge technology solutions and expert training that help 
+                        businesses and individuals thrive in an increasingly digital world.
+                    </p>
+                    <p class="text-muted">
+                        We believe that technology should be accessible, powerful, and transformative. 
+                        Our mission is to bridge the gap between complex technological challenges and 
+                        practical business solutions.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="vision-card h-100">
+                    <div class="card-icon mb-4">
+                        <i class="bi bi-eye display-4 text-success"></i>
+                    </div>
+                    <h3 class="mb-3">Our Vision</h3>
+                    <p class="lead mb-4">
+                        To be the leading technology partner for businesses seeking innovative, 
+                        reliable, and scalable solutions that drive growth and success.
+                    </p>
+                    <p class="text-muted">
+                        We envision a future where every business, regardless of size, has access 
+                        to world-class technology solutions that enable them to compete and succeed 
+                        in the global marketplace.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Company Values -->
+<section class="values-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Our Core Values</h2>
+                <p class="lead text-muted">The principles that guide everything we do</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="value-card text-center">
+                    <div class="value-icon mb-3">
+                        <i class="bi bi-lightbulb display-4 text-warning"></i>
+                    </div>
+                    <h4>Innovation</h4>
+                    <p class="text-muted">We constantly explore new technologies and approaches to deliver cutting-edge solutions.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="value-card text-center">
+                    <div class="value-icon mb-3">
+                        <i class="bi bi-shield-check display-4 text-success"></i>
+                    </div>
+                    <h4>Quality</h4>
+                    <p class="text-muted">We maintain the highest standards in all our deliverables and customer interactions.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="value-card text-center">
+                    <div class="value-icon mb-3">
+                        <i class="bi bi-people display-4 text-primary"></i>
+                    </div>
+                    <h4>Collaboration</h4>
+                    <p class="text-muted">We work closely with our clients to understand their needs and deliver tailored solutions.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="value-card text-center">
+                    <div class="value-icon mb-3">
+                        <i class="bi bi-heart display-4 text-danger"></i>
+                    </div>
+                    <h4>Passion</h4>
+                    <p class="text-muted">We are passionate about technology and committed to helping our clients succeed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="why-choose-us py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Why Choose Zencrow Technologies?</h2>
+                <p class="lead text-muted">We deliver exceptional value through expertise, innovation, and dedication</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="feature-list">
+                    <div class="feature-item d-flex align-items-start mb-4">
+                        <div class="feature-icon me-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Expert Team</h5>
+                            <p class="text-muted">Years of industry experience with cutting-edge technologies and continuous training.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item d-flex align-items-start mb-4">
+                        <div class="feature-icon me-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Custom Solutions</h5>
+                            <p class="text-muted">Tailored approaches that fit your specific business requirements and goals.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item d-flex align-items-start mb-4">
+                        <div class="feature-icon me-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>24/7 Support</h5>
+                            <p class="text-muted">Round-the-clock technical support and maintenance services for peace of mind.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item d-flex align-items-start mb-4">
+                        <div class="feature-icon me-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Proven Results</h5>
+                            <p class="text-muted">Track record of successful projects and satisfied clients across various industries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="bi bi-quote display-4 text-primary mb-3"></i>
+                        <p class="lead mb-4">
+                            "Zencrow Technologies transformed our business operations with their innovative solutions. 
+                            Their expertise and dedication exceeded our expectations, and the results speak for themselves."
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>Dr. Sharad M</strong>
+                            <span class="text-muted">CEO, Elicot Polymers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Company Timeline -->
+<section class="timeline-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Our Journey</h2>
+                <p class="lead text-muted">Key milestones in our company's growth and development</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>2025 - Company Founded</h4>
+                            <p class="text-muted">Started with a vision to make technology accessible to businesses of all sizes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Meet Our Leadership Team</h2>
+                <p class="lead text-muted">Experienced professionals dedicated to your success</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="team-card text-center">
+                    <div class="team-avatar mb-3">
+                        <i class="bi bi-person-circle display-1 text-primary"></i>
+                    </div>
+                    <h4>Dr. Sharad Manapure</h4>
+                    <p class="text-primary fw-semibold">Founder & CEO</p>
+                    <p class="text-muted">Expertise in technology leadership and business strategy.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="team-card text-center">
+                    <div class="team-avatar mb-3">
+                        <i class="bi bi-person-circle display-1 text-success"></i>
+                    </div>
+                    <h4>Harshal Paunikar</h4>
+                    <p class="text-success fw-semibold">Co-founder & CTO</p>
+                    <p class="text-muted">Expert in emerging technologies and digital transformation strategies.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="team-card text-center">
+                    <div class="team-avatar mb-3">
+                        <i class="bi bi-person-circle display-1 text-warning"></i>
+                    </div>
+                    <h4>Karina Lorena Vedia</h4>
+                    <p class="text-warning fw-semibold">Head of Operations</p>
+                    <p class="text-muted">Specializes in process optimization and client relationship management.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Work with Us?</h2>
+        <p class="lead mb-4 text-white" >Let's discuss how we can help transform your business with innovative technology solutions</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('contact.index') }}" class="btn btn-light btn-lg">
+                <i class="bi bi-envelope me-2"></i>Get Started
+            </a>
+            <a href="{{ url_for('services.index') }}" class="btn btn-light btn-lg">
+                <i class="bi bi-list-check me-2"></i>View Services
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Mission & Vision Cards */
+.mission-card,
+.vision-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,.05);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.mission-card:hover,
+.vision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px rgba(0,0,0,.1);
+}
+
+.card-icon {
+    color: #2563eb;
+}
+
+/* Value Cards */
+.value-card {
+    padding: 2rem 1rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,.05);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px rgba(0,0,0,.1);
+}
+
+.value-icon {
+    color: #2563eb;
+}
+
+/* Feature Items */
+.feature-item {
+    padding: 1rem 0;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+}
+
+/* Testimonial */
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #2563eb;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-marker {
+    width: 20px;
+    height: 20px;
+    background: #2563eb;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 0 4px #2563eb;
+    z-index: 1;
+}
+
+.timeline-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,.05);
+    margin: 0 2rem;
+    flex: 1;
+}
+
+/* Team Cards */
+.team-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,.05);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px rgba(0,0,0,.1);
+}
+
+.team-avatar {
+    color: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+    }
+    
+    .timeline-content {
+        margin-left: 3rem;
+        margin-right: 0;
+    }
+    
+    .mission-card,
+    .vision-card,
+    .value-card,
+    .team-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Animations */
+.mission-card,
+.vision-card,
+.value-card,
+.team-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animations */
+.mission-card { animation-delay: 0.1s; }
+.vision-card { animation-delay: 0.2s; }
+.value-card:nth-child(1) { animation-delay: 0.1s; }
+.value-card:nth-child(2) { animation-delay: 0.2s; }
+.value-card:nth-child(3) { animation-delay: 0.3s; }
+.value-card:nth-child(4) { animation-delay: 0.4s; }
+</style>
+{% endblock %}  {# End of content block #}

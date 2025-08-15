@@ -1,0 +1,430 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-white py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6">
+                <h1 class="display-3 fw-bold mb-4 animate-fade-in">
+                    Transform Your Business with 
+                    <span class="text-gradient">Innovative Technology</span>
+                </h1>
+                <p class="lead mb-4 animate-fade-in-delay text-white">
+                    We empower businesses through cutting-edge IT solutions, custom web development, 
+                    professional training, and language learning programs.
+                </p>
+                <div class="d-flex flex-wrap gap-3 animate-fade-in-delay-2">
+                    <a href="{{ url_for('services.index') }}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-rocket-takeoff me-2"></i>Explore Services
+                    </a>
+                    <a href="{{ url_for('contact.index') }}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-chat-dots me-2"></i>Get Started
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="hero-image animate-float">
+                    <i class="bi bi-cpu display-1 text-primary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section 
+<section class="stats-section py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="00">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="00">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="00">0</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="00">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+
+<!-- Services Preview -->
+<section class="services-preview py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Our Core Services</h2>
+                <p class="lead text-muted">Comprehensive solutions to drive your business forward</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card text-center h-100">
+                    <div class="service-icon mb-3">
+                        <i class="bi bi-headset display-4 text-primary"></i>
+                    </div>
+                    <h4 class="service-title">IT Support & Solutions</h4>
+                    <p class="service-description">
+                        Expert technical support and comprehensive IT solutions tailored to your business needs.
+                    </p>
+                    <a href="{{ url_for('services.index') }}" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card text-center h-100">
+                    <div class="service-icon mb-3">
+                        <i class="bi bi-code-slash display-4 text-success"></i>
+                    </div>
+                    <h4 class="service-title">Web Development</h4>
+                    <p class="service-description">
+                        Custom web solutions and applications built with modern technologies and best practices that will make a difference.
+                    </p>
+                    <a href="{{ url_for('services.index') }}" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card text-center h-100">
+                    <div class="service-icon mb-3">
+                        <i class="bi bi-mortarboard display-4 text-warning"></i>
+                    </div>
+                    <h4 class="service-title">Tech Training</h4>
+                    <p class="service-description">
+                        Professional development programs to enhance your team's technical skills and knowledge.
+                    </p>
+                    <a href="{{ url_for('services.index') }}" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card text-center h-100">
+                    <div class="service-icon mb-3">
+                        <i class="bi bi-translate display-4 text-info"></i>
+                    </div>
+                    <h4 class="service-title">Language Learning</h4>
+                    <p class="service-description">
+                        Comprehensive language courses designed to expand your global communication capabilities.
+                    </p>
+                    <a href="{{ url_for('services.index') }}" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="why-choose-us py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-4">Why Choose Zencrow Technologies?</h2>
+                <div class="feature-list">
+                    <div class="feature-item d-flex align-items-start mb-4">
+                        <div class="feature-icon me-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Expert Team</h5>
+                            <p class="text-muted">Years of industry experience with cutting-edge technologies</p>
+                        </div>
+                    </div>
+                    <div class="feature-item d-flex align-items-start mb-4">
+                        <div class="feature-icon me-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Custom Solutions</h5>
+                            <p class="text-muted">Tailored approaches that fit your specific business requirements</p>
+                        </div>
+                    </div>
+                    <div class="feature-item d-flex align-items-start mb-4">
+                        <div class="feature-icon me-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>24/7 Support</h5>
+                            <p class="text-muted">Round-the-clock technical support and maintenance services</p>
+                        </div>
+                    </div>
+                    <div class="feature-item d-flex align-items-start mb-4">
+                        <div class="feature-icon me-3">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Proven Results</h5>
+                            <p class="text-muted">Track record of successful projects and satisfied clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="bi bi-quote display-4 text-primary mb-3"></i>
+                        <p class="lead mb-4">
+                            "Zencrow Technologies transformed our business operations with their innovative solutions. 
+                            Their expertise and dedication exceeded our expectations."
+                        </p>
+                        <div class="testimonial-author">
+                            <strong>Dr. Sharad M</strong>
+                            <span class="text-muted">Founder, Elicot Polymers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Blog Posts -->
+<section class="latest-blog py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Latest Insights</h2>
+                <p class="lead text-muted">Stay updated with the latest technology trends and insights</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="blog-preview-card">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-primary me-2">Featured</span>
+                                <small class="text-muted">Technology Trends</small>
+                            </div>
+                            <h4 class="card-title">The Future of Technology: Emerging Trends and Their Transformative Impact</h4>
+                            <p class="card-text text-muted">
+                                Explore the most promising future technologies and their potential applications in our comprehensive guide...
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Zencrow Technologies Team</small>
+                                <a href="{{ url_for('blog.index') }}" class="btn btn-outline-primary btn-sm">
+                                    Read More <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Business?</h2>
+        <p class="lead mb-4 text-white">Let's discuss how we can help you achieve your technology goals</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('contact.index') }}" class="btn btn-light btn-lg">
+                <i class="bi bi-envelope me-2"></i>Get in Touch
+            </a>
+            <a href="{{ url_for('services.index') }}" class="btn btn-light btn-lg">
+                <i class="bi bi-list-check me-2"></i>View Services
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeInUp 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Stats Section */
+.stat-item {
+    padding: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Service Cards */
+.service-card {
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px rgba(0,0,0,.1);
+}
+
+.service-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.service-description {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+/* Testimonial */
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Blog Preview */
+.blog-preview-card {
+    transition: transform 0.3s ease;
+}
+
+.blog-preview-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .min-vh-75 {
+        min-height: 60vh;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<script>
+// Animate stats numbers
+function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    
+    stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+        }, 16);
+    });
+}
+
+// Trigger animation when stats section is visible
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateStats();
+            observer.unobserve(entry.target);
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+});
+</script>
+{% endblock %}

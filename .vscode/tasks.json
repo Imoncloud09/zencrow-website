@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Run Flask App",
+			"command": ".\\venv\\Scripts\\python",
+			"args": [
+				"run.py"
+			],
+			"group": "test",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
