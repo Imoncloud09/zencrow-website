@@ -103,7 +103,7 @@ ssh -i $PemKey "$Ec2User@$Ec2Host" "chmod +x $AppDir/deployment/*.sh" 2>&1 | Out
 Write-Host "`n🚀 Running deployment script on EC2..." -ForegroundColor Cyan
 Write-Host "This may take several minutes..." -ForegroundColor Yellow
 
-ssh -i $PemKey "$Ec2User@$Ec2Host" "cd $AppDir && bash deployment/deploy-aws.sh"
+ssh -i $PemKey "$Ec2User@$Ec2Host" "cd $AppDir && bash deployment/deploy-after-upload.sh"
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "`n✅ Deployment completed successfully!" -ForegroundColor Green
