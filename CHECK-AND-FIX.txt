@@ -1,0 +1,82 @@
+================================================================================
+QUICK FIX FOR CONNECTION REFUSED ERROR
+================================================================================
+
+STEP 1: Configure AWS Security Group (DO THIS FIRST!)
+------------------------------------------------------
+1. Go to: https://console.aws.amazon.com/ec2/
+2. Click "Instances" in left menu
+3. Find your instance (IP: 3.109.210.116)
+4. Click on the instance
+5. Click "Security" tab (bottom panel)
+6. Click on Security Group name (blue link)
+7. Click "Edit inbound rules"
+8. Click "Add rule"
+9. Set:
+   - Type: HTTP
+   - Port: 80
+   - Source: 0.0.0.0/0
+10. Click "Save rules"
+11. Wait 10-30 seconds
+
+STEP 2: Check Services on EC2
+------------------------------
+Run these commands on your EC2 instance:
+
+# Connect to EC2
+ssh -i "zenprod-new.pem" ec2-user@ec2-3-109-210-116.ap-south-1.compute.amazonaws.com
+
+# Check if application is deployed
+ls -la /home/ec2-user/zencrow-website
+
+# If NOT deployed, deploy it:
+cd /home/ec2-user/zencrow-website
+chmod +x deployment/*.sh
+bash deployment/deploy-aws.sh
+
+# If deployed, check services:
+sudo systemctl status zencrow
+sudo systemctl status nginx
+
+# If services are not running, start them:
+sudo systemctl start zencrow
+sudo systemctl start nginx
+sudo systemctl enable zencrow
+sudo systemctl enable nginx
+
+# Check if ports are listening:
+sudo netstat -tlnp | grep -E ':80|:8000'
+
+# Test locally:
+curl http://localhost:8000/health
+
+STEP 3: Deploy Application (If Not Already Deployed)
+-----------------------------------------------------
+From your LOCAL machine (Windows):
+
+# Option A: Use PowerShell script
+.\deployment\transfer-to-ec2.ps1
+
+# Option B: Manual transfer
+scp -i "zenprod-new.pem" -r . ec2-user@ec2-3-109-210-116.ap-south-1.compute.amazonaws.com:/home/ec2-user/zencrow-website
+
+Then on EC2:
+ssh -i "zenprod-new.pem" ec2-user@ec2-3-109-210-116.ap-south-1.compute.amazonaws.com
+cd /home/ec2-user/zencrow-website
+chmod +x deployment/*.sh
+bash deployment/deploy-aws.sh
+
+QUICK DIAGNOSTIC
+----------------
+Run this on EC2 to see what's wrong:
+cd /home/ec2-user/zencrow-website
+bash deployment/quick-check.sh
+
+OR
+
+bash deployment/fix-connection-refused.sh
+
+================================================================================
+MOST COMMON FIX: Add HTTP (port 80) rule to Security Group in AWS Console!
+================================================================================
+
