@@ -3,14 +3,22 @@ Description=Zencrow Flask Application
 After=network.target
 
 [Service]
+Type=exec
 User=ec2-user
 Group=ec2-user
 WorkingDirectory=/home/ec2-user/zencrow-website
-Environment="PATH=/home/ec2-user/zencrow-website/venv/bin"
+Environment="PATH=/home/ec2-user/zencrow-website/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="FLASK_ENV=production"
 ExecStart=/home/ec2-user/zencrow-website/venv/bin/gunicorn --config gunicorn.conf.py wsgi:application
 ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
 Restart=always
 RestartSec=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=zencrow
 
 [Install]
 WantedBy=multi-user.target
